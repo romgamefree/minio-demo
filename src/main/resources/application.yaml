@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: minio
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/minio_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=Asia/Ho_Chi_Minh&allowPublicKeyRetrieval=true
+    username: minio_user
+    password: minio12345678
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 300MB
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+minio:
+  endpoint: http://localhost:9000
+  access-key: minioadmin
+  secret-key: minioadmin123456
+  bucket: documents
+  presign-expire: 300
